@@ -1,7 +1,6 @@
 import { read, utils } from "xlsx";
 import { knex } from "knex";
 import { readdir } from "node:fs/promises";
-import { TYPES } from "tedious";
 const mKnex = knex({ client: "mysql" });
 const files = await readdir(import.meta.dir + "/sourcefiles");
 
@@ -29,14 +28,3 @@ for await (const fileName of files) {
 
   await Bun.write(`export/${fileName.replace(".xlsx", "")}.sql`, sqlFileResult);
 }
-await Bun.sleep(60000);
-
-//    fs.writeFile(
-//      `./export/xt_content_elements/xt_content_elements_${fromLang}.sql`,
-//      result.join(''),
-//      (err) => {
-//        if (err) throw err;
-//        console.log('Die SQL-Datei wurde erstellt.');
-//      }
-//    );
-//  };
