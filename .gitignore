@@ -12,6 +12,8 @@ lerna-debug.log*
 *.xlsx
 *.json
 *.sql
+!package.json
+!tsconfig.json
 
 # Caches
 
