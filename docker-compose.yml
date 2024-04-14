@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  xlsx2sql:
+    build:
+      context: .
+    volumes:
+      - ./export:/usr/src/app/export:cached
+      - ./sourcefiles:/usr/src/app/sourcefiles:cached
